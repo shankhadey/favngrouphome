@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Favn Group — AI Products &amp; Education</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0a0a0b;
+--bg2:#111113;
+--bg3:#18181c;
+--border:#2a2a30;
+--border2:#3a3a42;
+--text:#f0f0f2;
+--muted:#8a8a96;
+--dim:#55555f;
+--accent:#d4a853;
+--accent2:#b8874a;
+--teal:#3ab5a0;
+--pill-live-bg:#0f2e28;
+--pill-live:#3ab5a0;
+--pill-plan-bg:#2a2010;
+--pill-plan:#d4a853;
+--pill-wip-bg:#1e1a2e;
+--pill-wip:#9b8ed4;
+--pill-free-bg:#102030;
+--pill-free:#4ab0e8;
+}
+html{scroll-behavior:smooth}
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'DM Sans',sans-serif;
+font-size:16px;
+line-height:1.6;
+-webkit-font-smoothing:antialiased;
+}
+
+/* NAV */
+nav{
+position:sticky;top:0;z-index:100;
+background:rgba(10,10,11,0.85);
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--border);
+padding:0 2rem;
+height:60px;
+display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+font-family:'Syne',sans-serif;
+font-weight:800;font-size:1.1rem;
+letter-spacing:0.05em;
+color:var(--text);
+text-decoration:none;
+}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+color:var(--muted);
+text-decoration:none;
+font-size:0.875rem;
+font-weight:400;
+transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+background:var(--accent);
+color:#0a0a0b;
+text-decoration:none;
+padding:0.45rem 1.1rem;
+border-radius:6px;
+font-size:0.875rem;
+font-weight:500;
+transition:background 0.2s;
+font-family:'DM Sans',sans-serif;
+}
+.nav-cta:hover{background:var(--accent2)}
+
+/* HERO */
+.hero{
+padding:7rem 2rem 5rem;
+max-width:900px;
+margin:0 auto;
+text-align:center;
+position:relative;
+}
+.hero::before{
+content:'';
+position:absolute;
+top:-60px;left:50%;transform:translateX(-50%);
+width:600px;height:400px;
+background:radial-gradient(ellipse at center,rgba(212,168,83,0.07) 0%,transparent 70%);
+pointer-events:none;
+}
+.eyebrow{
+display:inline-block;
+font-size:0.75rem;
+font-weight:500;
+letter-spacing:0.12em;
+text-transform:uppercase;
+color:var(--accent);
+border:1px solid rgba(212,168,83,0.3);
+padding:0.35rem 0.85rem;
+border-radius:20px;
+margin-bottom:1.75rem;
+}
+h1{
+font-family:'Syne',sans-serif;
+font-size:clamp(2.4rem,5vw,3.8rem);
+font-weight:800;
+line-height:1.1;
+letter-spacing:-0.02em;
+color:var(--text);
+margin-bottom:1.25rem;
+}
+h1 em{
+font-style:normal;
+color:var(--accent);
+}
+.hero-sub{
+font-size:1.1rem;
+color:var(--muted);
+max-width:560px;
+margin:0 auto 2.5rem;
+font-weight:300;
+line-height:1.7;
+}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+background:var(--accent);
+color:#0a0a0b;
+text-decoration:none;
+padding:0.7rem 1.6rem;
+border-radius:7px;
+font-weight:500;
+font-size:0.95rem;
+transition:background 0.2s,transform 0.15s;
+display:inline-block;
+}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-ghost{
+color:var(--muted);
+text-decoration:none;
+padding:0.7rem 1.6rem;
+border-radius:7px;
+font-weight:400;
+font-size:0.95rem;
+border:1px solid var(--border2);
+transition:border-color 0.2s,color 0.2s;
+display:inline-block;
+}
+.btn-ghost:hover{border-color:var(--muted);color:var(--text)}
+
+/* SECTIONS */
+section{
+max-width:1100px;
+margin:0 auto;
+padding:4rem 2rem;
+}
+.section-label{
+font-family:'Syne',sans-serif;
+font-size:0.7rem;
+font-weight:600;
+letter-spacing:0.14em;
+text-transform:uppercase;
+color:var(--dim);
+margin-bottom:0.5rem;
+}
+.section-title{
+font-family:'Syne',sans-serif;
+font-size:1.6rem;
+font-weight:700;
+color:var(--text);
+margin-bottom:0.5rem;
+}
+.section-sub{
+font-size:0.9rem;
+color:var(--muted);
+margin-bottom:2.5rem;
+font-weight:300;
+}
+.divider{border:none;border-top:1px solid var(--border);margin:0}
+
+/* PILL */
+.pill{
+display:inline-flex;align-items:center;gap:0.35rem;
+font-size:0.7rem;font-weight:500;
+letter-spacing:0.06em;text-transform:uppercase;
+padding:0.25rem 0.65rem;
+border-radius:20px;
+white-space:nowrap;
+}
+.pill-dot{width:5px;height:5px;border-radius:50%}
+.pill.live{background:var(--pill-live-bg);color:var(--pill-live)}
+.pill.live .pill-dot{background:var(--pill-live)}
+.pill.planned{background:var(--pill-plan-bg);color:var(--pill-plan)}
+.pill.planned .pill-dot{background:var(--pill-plan)}
+.pill.wip{background:var(--pill-wip-bg);color:var(--pill-wip)}
+.pill.wip .pill-dot{background:var(--pill-wip)}
+.pill.free{background:var(--pill-free-bg);color:var(--pill-free)}
+.pill.free .pill-dot{background:var(--pill-free)}
+
+/* CARD GRID */
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:1.25rem;
+}
+.card{
+background:var(--bg2);
+border:1px solid var(--border);
+border-radius:12px;
+padding:1.5rem;
+display:flex;flex-direction:column;
+transition:border-color 0.2s,transform 0.2s;
+position:relative;
+overflow:hidden;
+}
+.card::before{
+content:'';
+position:absolute;
+top:0;left:0;right:0;
+height:1px;
+background:linear-gradient(90deg,transparent,rgba(212,168,83,0.15),transparent);
+opacity:0;
+transition:opacity 0.2s;
+}
+.card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.card:hover::before{opacity:1}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:0.75rem;margin-bottom:0.85rem}
+.card-icon{
+width:38px;height:38px;border-radius:9px;
+background:var(--bg3);
+border:1px solid var(--border);
+display:flex;align-items:center;justify-content:center;
+font-size:1.1rem;flex-shrink:0;
+}
+.card-title{
+font-family:'Syne',sans-serif;
+font-size:1rem;font-weight:700;
+color:var(--text);margin-bottom:0.2rem;
+}
+.card-price{
+font-size:0.8rem;font-weight:500;
+color:var(--accent);
+margin-bottom:0.1rem;
+}
+.card-desc{
+font-size:0.875rem;
+color:var(--muted);
+line-height:1.55;
+flex:1;
+margin-bottom:1.25rem;
+font-weight:300;
+}
+.card-footer{
+display:flex;align-items:center;justify-content:space-between;
+margin-top:auto;
+}
+.card-link{
+font-size:0.8rem;
+font-weight:500;
+color:var(--accent);
+text-decoration:none;
+display:inline-flex;align-items:center;gap:0.3rem;
+transition:gap 0.15s;
+}
+.card-link:hover{gap:0.5rem}
+.card-link-icon{font-size:0.75rem}
+
+/* COURSE SUBSECTION */
+.course-group{margin-bottom:2.5rem}
+.course-group-label{
+font-size:0.75rem;
+font-weight:500;
+letter-spacing:0.1em;
+text-transform:uppercase;
+color:var(--dim);
+margin-bottom:1rem;
+padding-bottom:0.6rem;
+border-bottom:1px solid var(--border);
+}
+
+/* FEATURED CARD */
+.card.featured{
+border-color:rgba(212,168,83,0.35);
+background:linear-gradient(135deg,var(--bg2) 0%,rgba(212,168,83,0.04) 100%);
+}
+
+/* SERVICES */
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:1.25rem;
+margin-bottom:2rem;
+}
+.service-card{
+background:var(--bg2);
+border:1px solid var(--border);
+border-radius:12px;
+padding:1.5rem;
+transition:border-color 0.2s;
+}
+.service-card:hover{border-color:var(--border2)}
+.service-icon{font-size:1.4rem;margin-bottom:0.85rem}
+.service-title{
+font-family:'Syne',sans-serif;
+font-size:0.95rem;
+font-weight:700;
+color:var(--text);
+margin-bottom:0.4rem;
+}
+.service-desc{
+font-size:0.83rem;
+color:var(--muted);
+line-height:1.55;
+font-weight:300;
+}
+
+/* CONTACT */
+.contact-block{
+background:var(--bg2);
+border:1px solid var(--border);
+border-radius:14px;
+padding:2.5rem;
+display:flex;
+gap:3rem;
+align-items:flex-start;
+flex-wrap:wrap;
+}
+.contact-left{flex:1;min-width:240px}
+.contact-tagline{
+font-family:'Syne',sans-serif;
+font-size:1.3rem;
+font-weight:700;
+color:var(--text);
+margin-bottom:0.65rem;
+line-height:1.3;
+}
+.contact-sub{
+font-size:0.875rem;
+color:var(--muted);
+font-weight:300;
+line-height:1.6;
+margin-bottom:1.5rem;
+}
+.contact-right{
+display:flex;
+flex-direction:column;
+gap:0.75rem;
+min-width:220px;
+}
+.contact-field{
+display:flex;flex-direction:column;gap:0.3rem;
+}
+.contact-field label{
+font-size:0.75rem;
+color:var(--dim);
+font-weight:500;
+letter-spacing:0.06em;
+text-transform:uppercase;
+}
+.contact-field input,
+.contact-field textarea,
+.contact-field select{
+background:var(--bg3);
+border:1px solid var(--border);
+border-radius:7px;
+color:var(--text);
+font-family:'DM Sans',sans-serif;
+font-size:0.875rem;
+padding:0.6rem 0.85rem;
+outline:none;
+transition:border-color 0.2s;
+width:100%;
+}
+.contact-field input:focus,
+.contact-field textarea:focus,
+.contact-field select:focus{border-color:var(--accent)}
+.contact-field textarea{resize:vertical;min-height:80px}
+.contact-field select option{background:var(--bg3)}
+.contact-send{
+background:var(--accent);
+color:#0a0a0b;
+border:none;
+border-radius:7px;
+padding:0.65rem 1.5rem;
+font-family:'DM Sans',sans-serif;
+font-size:0.9rem;
+font-weight:500;
+cursor:pointer;
+transition:background 0.2s;
+align-self:flex-start;
+}
+.contact-send:hover{background:var(--accent2)}
+
+/* EMAIL ALT */
+.email-alt{
+font-size:0.8rem;
+color:var(--muted);
+margin-top:0.75rem;
+font-weight:300;
+}
+.email-alt a{color:var(--accent);text-decoration:none}
+.email-alt a:hover{text-decoration:underline}
+
+/* FOOTER */
+footer{
+border-top:1px solid var(--border);
+padding:2rem;
+text-align:center;
+font-size:0.8rem;
+color:var(--dim);
+}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--text)}
+
+/* MOBILE */
+@media(max-width:700px){
+nav{padding:0 1rem}
+.nav-links{display:none}
+.hero{padding:5rem 1.25rem 3rem}
+section{padding:3rem 1.25rem}
+.contact-block{flex-direction:column;gap:1.5rem;padding:1.5rem}
+.contact-right{width:100%}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">FAVN<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#services">Services</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Work with us</a>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow">AI Products &amp; Education</span>
+  <h1>Build better with<br><em>AI that works.</em></h1>
+  <p class="hero-sub">Favn Group builds AI-powered products and teaches teams how to use AI to do real work, faster. Courses, tools, and advisory for the agentic era.</p>
+  <div class="hero-actions">
+    <a href="#courses" class="btn-primary">Explore courses</a>
+    <a href="#products" class="btn-ghost">View products</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="section-label">Education</div>
+  <h2 class="section-title">Courses &amp; Training</h2>
+  <p class="section-sub">Practical AI instruction from people building real systems, not slides.</p>
+
+  <div class="course-group">
+    <div class="course-group-label">Paid — Current</div>
+    <div class="card-grid">
+      <div class="card featured">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Claude Cowork Certification</div>
+            <div class="card-price">$200</div>
+          </div>
+          <span class="pill live"><span class="pill-dot"></span>First Cohort May 9</span>
+        </div>
+        <p class="card-desc">Learn to configure Claude as a working system, not just a chat interface. Cowork, skills, context files, and agentic pipelines. Certificate on completion.</p>
+        <div class="card-footer">
+          <a href="https://maven.com/level-up-leadership-team/claude-cowork-certification" target="_blank" rel="noopener" class="card-link">Enroll on Maven <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-group">
+    <div class="course-group-label">Paid — Planned</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Claude Cowork 2-Day Mastery</div>
+            <div class="card-price">$799</div>
+          </div>
+          <span class="pill planned"><span class="pill-dot"></span>Planned</span>
+        </div>
+        <p class="card-desc">Deep-dive intensive. Two full days to build, configure, and deploy a complete AI-powered workflow system using Claude Cowork.</p>
+        <div class="card-footer">
+          <a href="#contact" class="card-link">Join waitlist <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Evals Practitioner</div>
+            <div class="card-price">$1,200</div>
+          </div>
+          <span class="pill planned"><span class="pill-dot"></span>Planned</span>
+        </div>
+        <p class="card-desc">Build evaluation frameworks for AI products that actually work in production. No vibes. Systematic, measurable, repeatable evals.</p>
+        <div class="card-footer">
+          <a href="#contact" class="card-link">Join waitlist <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-group">
+    <div class="course-group-label">Free — Lightning Lessons</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-header">
+          <div><div class="card-title">No Vibes, Just Evals</div></div>
+          <span class="pill free"><span class="pill-dot"></span>Free</span>
+        </div>
+        <p class="card-desc">Proven evaluation frameworks for AI-native PMs. Move from gut-feel to measurable, repeatable AI quality.</p>
+        <div class="card-footer">
+          <a href="https://maven.com/p/353f4f/no-vibes-just-evals-proven-frameworks-for-ai-native-p-ms" target="_blank" rel="noopener" class="card-link">Watch on Maven <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div><div class="card-title">Stop Asking Claude — Let Claude Work</div></div>
+          <span class="pill free"><span class="pill-dot"></span>Free</span>
+        </div>
+        <p class="card-desc">Intro to Claude Cowork. How to configure Claude as a working system, not a chatbot. Live demo included.</p>
+        <div class="card-footer">
+          <a href="https://maven.com/p/c24d66/stop-asking-claude-let-claude-work" target="_blank" rel="noopener" class="card-link">Watch on Maven <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div><div class="card-title">Your First Automated Morning</div></div>
+          <span class="pill free"><span class="pill-dot"></span>Free</span>
+        </div>
+        <p class="card-desc">Build a real AI-powered morning workflow live. Digest emails, calendar prep, and daily brief — all automated.</p>
+        <div class="card-footer">
+          <a href="https://maven.com/p/de60d1/your-first-automated-morning-built-live" target="_blank" rel="noopener" class="card-link">Watch on Maven <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div><div class="card-title">Rapid Early-Career Growth</div></div>
+          <span class="pill free"><span class="pill-dot"></span>Free</span>
+        </div>
+        <p class="card-desc">3 high-leverage actions to accelerate career growth in an AI-first environment. Practical, not motivational.</p>
+        <div class="card-footer">
+          <a href="https://maven.com/p/4c5e2d/get-rapid-early-career-growth-3-key-actions" target="_blank" rel="noopener" class="card-link">Watch on Maven <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-label">Tools</div>
+  <h2 class="section-title">Products</h2>
+  <p class="section-sub">AI-powered tools built for real use cases. Live and free to try.</p>
+
+  <div class="course-group">
+    <div class="course-group-label">Live</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🛒</div>
+          <span class="pill live"><span class="pill-dot"></span>Live</span>
+        </div>
+        <div class="card-title">SmartSeller</div>
+        <p class="card-desc">AI-powered product listing generator. Turn product details into compelling, conversion-optimized listings in seconds.</p>
+        <div class="card-footer">
+          <a href="https://smartseller.favngroup.com/" target="_blank" rel="noopener" class="card-link">Open SmartSeller <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">💬</div>
+          <span class="pill live"><span class="pill-dot"></span>Live</span>
+        </div>
+        <div class="card-title">Cue</div>
+        <p class="card-desc">AI prompt assistant. Build, refine, and reuse high-quality prompts without starting from scratch every time.</p>
+        <div class="card-footer">
+          <a href="https://cue.favngroup.com/" target="_blank" rel="noopener" class="card-link">Open Cue <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">✦</div>
+          <span class="pill live"><span class="pill-dot"></span>Live</span>
+        </div>
+        <div class="card-title">PrettyQR</div>
+        <p class="card-desc">Generate beautiful, customizable QR codes. No login, no limits, no watermarks.</p>
+        <div class="card-footer">
+          <a href="https://prettyqr.onrender.com/" target="_blank" rel="noopener" class="card-link">Open PrettyQR <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🎬</div>
+          <span class="pill live"><span class="pill-dot"></span>Live</span>
+        </div>
+        <div class="card-title">Lense</div>
+        <p class="card-desc">Browser-based screen recorder with cinematic draw-to-zoom. Record, annotate, and share without installing anything.</p>
+        <div class="card-footer">
+          <a href="https://lense-kdp8.onrender.com/" target="_blank" rel="noopener" class="card-link">Open Lense <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-group">
+    <div class="course-group-label">In development</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🏠</div>
+          <span class="pill wip"><span class="pill-dot"></span>WIP</span>
+        </div>
+        <div class="card-title">HomeVal</div>
+        <p class="card-desc">Appraisal-grade comparative market analysis for real estate agents. AI-powered CMAs that close faster.</p>
+        <div class="card-footer">
+          <a href="#contact" class="card-link">Get early access <span class="card-link-icon">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">Work with us</div>
+  <h2 class="section-title">Consulting &amp; Advisory</h2>
+  <p class="section-sub">Hands-on AI strategy and implementation for teams building in the agentic era.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <div class="service-title">AI Strategy Consulting</div>
+      <p class="service-desc">Roadmap, architecture, and build-vs-buy decisions for teams integrating AI into their product or workflows.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <div class="service-title">Coaching</div>
+      <p class="service-desc">1:1 and team coaching for PMs, founders, and operators learning to build with AI tools and agentic systems.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔬</div>
+      <div class="service-title">Evals Advisory</div>
+      <p class="service-desc">Design and implement evaluation frameworks for AI systems in production. Move from vibes to metrics.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏗</div>
+      <div class="service-title">Advisory Retainer</div>
+      <p class="service-desc">Ongoing strategic partnership for AI-first companies. Product, platform, and team decisions with a veteran AI PM in your corner.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Get in touch</h2>
+  <p class="section-sub">Questions about courses, product access, or working with us.</p>
+  <div class="contact-block">
+    <div class="contact-left">
+      <div class="contact-tagline">Let's build something worth building.</div>
+      <p class="contact-sub">Whether you're exploring our courses, want early access to a product, or are looking for a strategic AI partner, reach out and we'll get back to you within 24 hours.</p>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <div style="font-size:0.8rem;color:var(--dim);display:flex;align-items:center;gap:0.5rem;">
+          <span style="color:var(--accent)">✓</span> Course enrollment &amp; waitlists
+        </div>
+        <div style="font-size:0.8rem;color:var(--dim);display:flex;align-items:center;gap:0.5rem;">
+          <span style="color:var(--accent)">✓</span> Product early access
+        </div>
+        <div style="font-size:0.8rem;color:var(--dim);display:flex;align-items:center;gap:0.5rem;">
+          <span style="color:var(--accent)">✓</span> Consulting &amp; advisory inquiries
+        </div>
+      </div>
+    </div>
+    <form class="contact-right" style="flex:1;min-width:280px;" action="https://formspree.io/f/hello@favngroup.com" method="POST">
+      <div class="contact-field">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Your name" required>
+      </div>
+      <div class="contact-field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="contact-field">
+        <label>What can we help with?</label>
+        <select name="topic">
+          <option value="">Select a topic</option>
+          <option>Course enrollment</option>
+          <option>Course waitlist</option>
+          <option>Product early access</option>
+          <option>Consulting inquiry</option>
+          <option>Advisory retainer</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="contact-field">
+        <label>Message</label>
+        <textarea name="message" placeholder="Tell us what you're working on..." required></textarea>
+      </div>
+      <button type="submit" class="contact-send">Send message</button>
+      <p class="email-alt">Or email us directly at <a href="mailto:hello@favngroup.com">hello@favngroup.com</a></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Favn Group &nbsp;·&nbsp; <a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+</footer>
+
+</body>
+</html>
